@@ -5,10 +5,10 @@ const Intro = () => {
       <h1>Quizzical</h1>
       <p>Some description if needed</p>
       <button>Start quiz</button>
-      <div>
+      <div className="top">
         <img src="./images/blob 5 (1).png" alt="" />
       </div>
-      <div>
+      <div className="bottom">
         <img src="./images/blob 5.png" alt="" />
       </div>
     </div>

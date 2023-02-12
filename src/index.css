@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,5 +6,57 @@
 }
 
 body {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
+}
+
+.intro {
+  position: relative;
+  background-color: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.intro h1 {
+  font-size: 31.25px;
+  line-height: 37px;
+  font-weight: 700;
+
+  color: #293264;
+}
+
+.intro p {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  color: #293264;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.intro button {
+  width: 193px;
+  height: 52px;
+  background: #4d5b9e;
+  color: #f5f7fb;
+  border-radius: 15px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.intro .top {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.intro .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
