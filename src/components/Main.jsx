@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import Questions from "./Questions";
 
 const Main = () => {
   const [questionsData, setQuestionsData] = useState([]);
@@ -21,15 +22,16 @@ const Main = () => {
   const changeQuestionsArray = (array) => {
     return array.map((item) => ({
       question: item.question,
+      id: nanoid(),
       answers: [
         ...item.incorrect_answers.map((incorrect_answer) => ({
-          incorrect_answer: incorrect_answer,
+          answer: incorrect_answer,
           isHeld: false,
           isTrue: false,
           id: nanoid(),
         })),
         {
-          correct_answer: item.correct_answer,
+          answer: item.correct_answer,
           isHeld: false,
           isTrue: true,
           id: nanoid(),
@@ -38,7 +40,13 @@ const Main = () => {
     }));
   };
 
-  return <div className="main">main</div>;
+  return <main>
+    {
+      questionsData.map(question => (
+        <Questions key={question.id} {...question}/>
+      ))
+    }
+  </main>;
 };
 
 export default Main;
