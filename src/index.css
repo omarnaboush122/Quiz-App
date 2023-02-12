@@ -60,3 +60,22 @@ body {
   bottom: 0;
   left: 0;
 }
+
+main {
+  position: relative;
+}
+
+main .top,
+main .bottom {
+  position: absolute;
+}
+
+main .top {
+  top: 0;
+  right: 0;
+}
+
+main .bottom {
+  bottom: 0;
+  left: 0;
+}

@@ -6,11 +6,16 @@ const Main = () => {
   const [questionsData, setQuestionsData] = useState([]);
 
   const fetchData = async () => {
-    const res = await fetch(
-      "https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple"
-    );
-    const data = await res.json();
-    setQuestionsData(changeQuestionsArray(data.results));
+    try {
+      const res = await fetch(
+        "https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple"
+      );
+      const data = await res.json();
+      setQuestionsData(changeQuestionsArray(data.results));
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -40,13 +45,19 @@ const Main = () => {
     }));
   };
 
-  return <main>
-    {
-      questionsData.map(question => (
-        <Questions key={question.id} {...question}/>
-      ))
-    }
-  </main>;
+  return (
+    <main>
+      {questionsData.map((question) => (
+        <Questions key={question.id} {...question} />
+      ))}
+      <div className="top">
+        <img src="./images/main-top.png" alt="main-top" />
+      </div>
+      <div className="bottom">
+        <img src="./images/main-bottom.png" alt="main-bottom" />
+      </div>
+    </main>
+  );
 };
 
 export default Main;
