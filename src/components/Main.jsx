@@ -22,24 +22,12 @@ const Main = () => {
     return array.map((item) => ({
       question: item.question,
       answers: [
-        {
-          incorrect_answer: item.incorrect_answers[0],
+        ...item.incorrect_answers.map((incorrect_answer) => ({
+          incorrect_answer: incorrect_answer,
           isHeld: false,
           isTrue: false,
           id: nanoid(),
-        },
-        {
-          incorrect_answer: item.incorrect_answers[1],
-          isHeld: false,
-          isTrue: false,
-          id: nanoid(),
-        },
-        {
-          incorrect_answer: item.incorrect_answers[2],
-          isHeld: false,
-          isTrue: false,
-          id: nanoid(),
-        },
+        })),
         {
           correct_answer: item.correct_answer,
           isHeld: false,
