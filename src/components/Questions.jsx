@@ -1,20 +1,19 @@
+import Answers from "./Answers";
 
-
-const Questions = ({question,answers}) => {
+const Questions = ({ question, answers }) => {
+  
   return (
     <section>
-          <article>
-          <h3>{question}</h3>
-          <div>
-            {
-              answers.map(answer => (
-                <div key={answer.id}>{answer.answer}</div>
-              ))
-            }
-          </div>
-        </article>
-        </section>
+      <article>
+        <h3>{question}</h3>
+        <div>
+          {answers.map((answer) => (
+            <Answers key={answer.id} {...answer} />
+          ))}
+        </div>
+      </article>
+    </section>
   );
-}
+};
 
 export default Questions;
