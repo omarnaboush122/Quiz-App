@@ -1,9 +1,19 @@
+import { useState } from "react";
 import Intro from "./components/Intro";
+import Main from "./components/Main";
 
 function App() {
+  const [isOpened,setIsOpened] = useState(false);
+
+  const openQuiz = () => {
+    setIsOpened(true);
+  }
   return (
     <>
-      <Intro />
+      {
+        isOpened ? <Main/> : <Intro openQuiz={openQuiz} />
+      }
+      
     </>
   );
 }
