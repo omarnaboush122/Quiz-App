@@ -12,7 +12,6 @@ const Main = () => {
       );
       const data = await res.json();
       setQuestionsData(changeQuestionsArray(data.results));
-
     } catch (error) {
       console.log(error);
     }
@@ -22,8 +21,6 @@ const Main = () => {
     fetchData();
   }, []);
 
-  console.log(questionsData);
-
   const changeQuestionsArray = (array) => {
     return array.map((item) => ({
       question: item.question,
@@ -32,34 +29,52 @@ const Main = () => {
         ...item.incorrect_answers.map((incorrect_answer) => ({
           answer: incorrect_answer,
           isHeld: false,
-          isTrue: false,
+          isCorrect: false,
           id: nanoid(),
         })),
         {
           answer: item.correct_answer,
           isHeld: false,
-          isTrue: true,
+          isCorrect: true,
           id: nanoid(),
         },
       ],
     }));
   };
 
+  const handleAnswer = (id) => {
+    setQuestionsData(
+      questionsData.map((question) => ({
+        ...question,
+        answers: question.answers.map((answer) =>
+          answer.id === id
+            ? { ...answer, isHeld: !answer.isHeld }
+            : { ...answer, isHeld: false }
+        ),
+      }))
+    );
+  };
+
+  console.log(questionsData);
   return (
     <main>
       <div className="container">
-      {questionsData.map((question) => (
-        <Questions key={question.id} {...question} />
-      ))}
-      <div className="btn-container">
-        <button>Check answers</button>
-      </div>
-      <div className="top">
-        <img src="./images/main-top.png" alt="main-top" />
-      </div>
-      <div className="bottom">
-        <img src="./images/main-bottom.png" alt="main-bottom" />
-      </div>
+        {questionsData.map((question) => (
+          <Questions
+            key={question.id}
+            {...question}
+            handleAnswer={handleAnswer}
+          />
+        ))}
+        <div className="btn-container">
+          <button>Check answers</button>
+        </div>
+        <div className="top">
+          <img src="./images/main-top.png" alt="main-top" />
+        </div>
+        <div className="bottom">
+          <img src="./images/main-bottom.png" alt="main-bottom" />
+        </div>
       </div>
     </main>
   );

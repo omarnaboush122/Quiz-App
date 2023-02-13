@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Answers = ({answer}) => {
+const Answers = ({id,answer,handleAnswer}) => {
   return (
-    <div className='answer'>{answer}</div>
+    <div className='answer' onClick={() => handleAnswer(id)}>{answer}</div>
   );
 }
 
