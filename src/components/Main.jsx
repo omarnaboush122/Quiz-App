@@ -13,6 +13,7 @@ const Main = () => {
       );
       const data = await res.json();
       setQuestionsData(changeQuestionsArray(data.results));
+      setIsChecked(false);
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +69,19 @@ const Main = () => {
     setIsChecked(true);
   };
 
-  
+  const findCorrectAnswers = () => {
+    let count = 0;
+
+    for (let i = 0; i < questionsData.length; i++) {
+      for (let j = 0; j < questionsData[i].answers.length; j++) {
+        const answer = questionsData[i].answers[j];
+        if (answer.isCorrect && answer.isHeld) {
+          count++;
+        }
+      }
+    }
+    return count;
+  };
 
   console.log(questionsData);
 
@@ -81,12 +94,13 @@ const Main = () => {
             {...question}
             handleAnswer={handleAnswer}
             isChecked={isChecked}
+            setIsChecked={setIsChecked}
           />
         ))}
         <div className="btn-container">
           {isChecked ? (
             <>
-              <p>You scored 3/{questionsData.length} correct answers</p>
+              <p>You scored {findCorrectAnswers()}/{questionsData.length} correct answers</p>
               <button>Play again</button>
             </>
           ) : (

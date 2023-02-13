@@ -5,6 +5,7 @@ const Answers = ({
   handleAnswer,
   questionId,
   isChecked,
+  setIsChecked,
   isCorrect,
 }) => {
   const style = () => {
