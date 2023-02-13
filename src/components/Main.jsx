@@ -4,6 +4,7 @@ import Questions from "./Questions";
 
 const Main = () => {
   const [questionsData, setQuestionsData] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -63,6 +64,10 @@ const Main = () => {
     return array.sort(() => Math.random() - 0.5);
   };
 
+  const checkAnswersClick = () => {
+    setIsChecked(true);
+  };
+
   console.log(questionsData);
 
   return (
@@ -76,7 +81,14 @@ const Main = () => {
           />
         ))}
         <div className="btn-container">
-          <button>Check answers</button>
+          {isChecked ? (
+            <>
+              <p>You scored 3/5 correct answers</p>
+              <button>Play again</button>
+            </>
+          ) : (
+            <button onClick={checkAnswersClick}>Check answers</button>
+          )}
         </div>
         <div className="top">
           <img src="./images/main-top.png" alt="main-top" />
