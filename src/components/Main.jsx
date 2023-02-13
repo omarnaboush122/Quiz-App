@@ -25,7 +25,7 @@ const Main = () => {
     return array.map((item) => ({
       question: item.question,
       id: nanoid(),
-      answers: [
+      answers: shuffleArray([
         ...item.incorrect_answers.map((incorrect_answer) => ({
           answer: incorrect_answer,
           isHeld: false,
@@ -38,7 +38,7 @@ const Main = () => {
           isCorrect: true,
           id: nanoid(),
         },
-      ],
+      ]),
     }));
   };
 
@@ -57,6 +57,10 @@ const Main = () => {
           : question
       )
     );
+  };
+
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
   };
 
   console.log(questionsData);
