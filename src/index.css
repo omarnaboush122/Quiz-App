@@ -117,14 +117,58 @@ main .bottom {
   }
 }
 
-.question {
-  padding: 20px 0;
-  border-bottom: 1px solid #DBDEF0;
+.questions {
+  padding: 15px 0;
+  border-bottom: 1px solid #dbdef0;
 }
 
-.question .h3 {
+.questions h3 {
+  color: #293264;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
+  margin-bottom: 10px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .answers {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.answers .answer {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
   color: #293264;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #4D5B9E;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .answers .answer {
+    width: 48%;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .answers .answer {
+    width: auto;
+  }
 }

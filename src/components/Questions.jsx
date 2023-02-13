@@ -3,10 +3,10 @@ import Answers from "./Answers";
 const Questions = ({ question, answers }) => {
   
   return (
-    <section className="question">
+    <section className="questions">
       <article>
         <h3>{question}</h3>
-        <div>
+        <div className="answers">
           {answers.map((answer) => (
             <Answers key={answer.id} {...answer} />
           ))}

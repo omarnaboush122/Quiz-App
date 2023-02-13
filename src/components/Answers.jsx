@@ -2,7 +2,7 @@ import React from 'react';
 
 const Answers = ({answer}) => {
   return (
-    <div>{answer}</div>
+    <div className='answer'>{answer}</div>
   );
 }
 
