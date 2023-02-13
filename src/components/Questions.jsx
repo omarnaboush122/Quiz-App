@@ -1,6 +1,6 @@
 import Answers from "./Answers";
 
-const Questions = ({ question, answers, handleAnswer, id }) => {
+const Questions = ({ question, answers, handleAnswer, id,isChecked }) => {
   return (
     <section className="questions">
       <article>
@@ -12,6 +12,7 @@ const Questions = ({ question, answers, handleAnswer, id }) => {
               {...answer}
               handleAnswer={handleAnswer}
               questionId={id}
+              isChecked = {isChecked}
             />
           ))}
         </div>

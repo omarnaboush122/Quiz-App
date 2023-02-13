@@ -68,6 +68,8 @@ const Main = () => {
     setIsChecked(true);
   };
 
+  
+
   console.log(questionsData);
 
   return (
@@ -78,12 +80,13 @@ const Main = () => {
             key={question.id}
             {...question}
             handleAnswer={handleAnswer}
+            isChecked={isChecked}
           />
         ))}
         <div className="btn-container">
           {isChecked ? (
             <>
-              <p>You scored 3/5 correct answers</p>
+              <p>You scored 3/{questionsData.length} correct answers</p>
               <button>Play again</button>
             </>
           ) : (
