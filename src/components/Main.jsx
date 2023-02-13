@@ -47,6 +47,7 @@ const Main = () => {
 
   return (
     <main>
+      <div className="container">
       {questionsData.map((question) => (
         <Questions key={question.id} {...question} />
       ))}
@@ -55,6 +56,7 @@ const Main = () => {
       </div>
       <div className="bottom">
         <img src="./images/main-bottom.png" alt="main-bottom" />
+      </div>
       </div>
     </main>
   );

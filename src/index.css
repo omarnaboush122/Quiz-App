@@ -63,11 +63,21 @@ body {
 
 main {
   position: relative;
+  padding-top: 50px;
+  min-height: 100vh;
 }
 
 main .top,
 main .bottom {
+  display: none;
   position: absolute;
+}
+
+@media (min-width: 768px) {
+  main .top,
+  main .bottom {
+    display: block;
+  }
 }
 
 main .top {
@@ -78,4 +88,43 @@ main .top {
 main .bottom {
   bottom: 0;
   left: 0;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.question {
+  padding: 20px 0;
+  border-bottom: 1px solid #DBDEF0;
+}
+
+.question .h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #293264;
 }

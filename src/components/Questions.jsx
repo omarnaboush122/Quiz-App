@@ -3,7 +3,7 @@ import Answers from "./Answers";
 const Questions = ({ question, answers }) => {
   
   return (
-    <section>
+    <section className="question">
       <article>
         <h3>{question}</h3>
         <div>
