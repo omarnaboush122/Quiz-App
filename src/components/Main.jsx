@@ -42,20 +42,25 @@ const Main = () => {
     }));
   };
 
-  const handleAnswer = (id) => {
-    setQuestionsData(
-      questionsData.map((question) => ({
-        ...question,
-        answers: question.answers.map((answer) =>
-          answer.id === id
-            ? { ...answer, isHeld: !answer.isHeld }
-            : { ...answer, isHeld: false }
-        ),
-      }))
+  const handleAnswer = (questionId, answerId) => {
+    setQuestionsData((prevQuestionsData) =>
+      prevQuestionsData.map((question) =>
+        question.id === questionId
+          ? {
+              ...question,
+              answers: question.answers.map((answer) =>
+                answer.id === answerId
+                  ? { ...answer, isHeld: !answer.isHeld }
+                  : { ...answer, isHeld: false }
+              ),
+            }
+          : question
+      )
     );
   };
 
   console.log(questionsData);
+
   return (
     <main>
       <div className="container">
