@@ -51,6 +51,9 @@ const Main = () => {
       {questionsData.map((question) => (
         <Questions key={question.id} {...question} />
       ))}
+      <div className="btn-container">
+        <button>Check answers</button>
+      </div>
       <div className="top">
         <img src="./images/main-top.png" alt="main-top" />
       </div>

@@ -63,7 +63,7 @@ body {
 
 main {
   position: relative;
-  padding-top: 50px;
+  padding-top: 30px;
   min-height: 100vh;
 }
 
@@ -127,7 +127,7 @@ main .bottom {
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .answers {
@@ -140,7 +140,6 @@ main .bottom {
 @media (min-width: 600px) {
   .answers {
     flex-direction: row;
-    flex-wrap: wrap;
   }
 }
 
@@ -171,4 +170,33 @@ main .bottom {
   .answers .answer {
     width: auto;
   }
+}
+
+.btn-container {
+  margin: 10px auto 0;
+}
+
+@media (min-width: 767px) {
+  .btn-container {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-container {
+    margin-top: 30px;
+  }
+}
+
+
+.btn-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #4D5B9E;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
