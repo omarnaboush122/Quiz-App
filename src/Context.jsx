@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 export const Context = createContext();
 
-const ContextProvider = ({ children }) => {
+const ContextProvider = ({children}) => {
   const [questionsData, setQuestionsData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
@@ -94,7 +94,7 @@ const ContextProvider = ({ children }) => {
   };
 
   return (
-    <ContextProvider
+    <Context.Provider
       value={{
         questionsData,
         setQuestionsData,
@@ -107,7 +107,7 @@ const ContextProvider = ({ children }) => {
       }}
     >
       {children}
-    </ContextProvider>
+    </Context.Provider>
   );
 };
 

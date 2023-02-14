@@ -24,8 +24,6 @@ const Main = () => {
             <Questions
               key={question.id}
               {...question}
-              handleAnswer={handleAnswer}
-              isChecked={isChecked}
             />
           ))}
           <div className="btn-container">
