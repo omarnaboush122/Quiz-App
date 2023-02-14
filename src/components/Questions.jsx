@@ -1,14 +1,16 @@
-import Answers from "./Answers";
+import Answers from "./Answer";
 
 const Questions = ({ question, answers, id }) => {
+
+  const allAnswers = answers.map((answer) => (
+    <Answers key={answer.id} {...answer} questionId={id} />
+  ))
   return (
     <section className="questions">
       <article>
         <h3>{question}</h3>
         <div className="answers">
-          {answers.map((answer) => (
-            <Answers key={answer.id} {...answer} questionId={id} />
-          ))}
+          {allAnswers}
         </div>
       </article>
     </section>

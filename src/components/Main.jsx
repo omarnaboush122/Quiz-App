@@ -12,6 +12,13 @@ const Main = () => {
     checkAnswersClick,
   } = useContext(Context);
 
+  const allQuestions = questionsData.map((question) => (
+    <Questions
+      key={question.id}
+      {...question}
+    />
+  ))
+
   return (
     <main>
       {loading ? (
@@ -20,12 +27,7 @@ const Main = () => {
         </div>
       ) : (
         <div className="container">
-          {questionsData.map((question) => (
-            <Questions
-              key={question.id}
-              {...question}
-            />
-          ))}
+          {allQuestions}
           <div className="btn-container">
             {isChecked ? (
               <>
