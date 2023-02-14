@@ -1,9 +1,9 @@
 import Answers from "./Answer";
 
-const Questions = ({ question, answers, id }) => {
+const Questions = ({ question, answers, questionId }) => {
 
   const allAnswers = answers.map((answer) => (
-    <Answers key={answer.id} {...answer} questionId={id} />
+    <Answers key={answer.answerId} {...answer} questionId={questionId} />
   ))
   return (
     <section className="questions">

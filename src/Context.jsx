@@ -29,19 +29,19 @@ const ContextProvider = ({ children }) => {
   const changeQuestionsArray = (array) => {
     return array.map((item) => ({
       question: item.question,
-      id: nanoid(),
+      questionId: nanoid(),
       answers: shuffleArray([
         ...item.incorrect_answers.map((incorrect_answer) => ({
           answer: incorrect_answer,
           isHeld: false,
           isCorrect: false,
-          id: nanoid(),
+          answerId: nanoid(),
         })),
         {
           answer: item.correct_answer,
           isHeld: false,
           isCorrect: true,
-          id: nanoid(),
+          answerId: nanoid(),
         },
       ]),
     }));
@@ -50,11 +50,11 @@ const ContextProvider = ({ children }) => {
   const handleAnswer = (questionId, answerId) => {
     setQuestionsData((prevQuestionsData) =>
       prevQuestionsData.map((question) =>
-        question.id === questionId
+        question.questionId === questionId
           ? {
               ...question,
               answers: question.answers.map((answer) =>
-                answer.id === answerId
+                answer.answerId === answerId
                   ? { ...answer, isHeld: !answer.isHeld }
                   : { ...answer, isHeld: false }
               ),
@@ -93,7 +93,6 @@ const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         questionsData,
-        setQuestionsData,
         loading,
         isChecked,
         handleAnswer,

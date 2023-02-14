@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { unEscape } from "../Utility";
 
-const Answers = ({ id, answer, isHeld, questionId, isCorrect }) => {
+const Answers = ({ answerId, answer, isHeld, questionId, isCorrect }) => {
   const { isChecked, handleAnswer } = useContext(Context);
 
   let style;
@@ -29,7 +29,7 @@ const Answers = ({ id, answer, isHeld, questionId, isCorrect }) => {
   return (
     <div
       className="answer"
-      onClick={() => handleAnswer(questionId, id)}
+      onClick={() => handleAnswer(questionId, answerId)}
       style={style}
     >
       {unEscape(answer)}

@@ -3,7 +3,6 @@ import { Context } from "../Context";
 import Questions from "./Questions";
 
 const Main = () => {
-  
   const {
     loading,
     questionsData,
@@ -14,11 +13,8 @@ const Main = () => {
   } = useContext(Context);
 
   const allQuestions = questionsData.map((question) => (
-    <Questions
-      key={question.id}
-      {...question}
-    />
-  ))
+    <Questions key={question.questionId} {...question} />
+  ));
 
   return (
     <main>
