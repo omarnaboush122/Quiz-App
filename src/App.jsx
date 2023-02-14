@@ -3,7 +3,7 @@ import Intro from "./components/Intro";
 import Main from "./components/Main";
 
 function App() {
-  const [isOpened,setIsOpened] = useState(true);
+  const [isOpened,setIsOpened] = useState(false);
 
   const openQuiz = () => {
     setIsOpened(true);

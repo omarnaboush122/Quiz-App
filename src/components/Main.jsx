@@ -5,6 +5,8 @@ import Questions from "./Questions";
 const Main = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
+  const [isFetched, setIsFetched] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -13,7 +15,9 @@ const Main = () => {
       );
       const data = await res.json();
       setQuestionsData(changeQuestionsArray(data.results));
+      setLoading(false);
       setIsChecked(false);
+      setIsFetched(true);
     } catch (error) {
       console.log(error);
     }
@@ -83,37 +87,51 @@ const Main = () => {
     return count;
   };
 
-  console.log(questionsData);
+  const tryAgain = () => {
+    setIsFetched(false);
+    fetchData();
+  };
 
   return (
     <main>
-      <div className="container">
-        {questionsData.map((question) => (
-          <Questions
-            key={question.id}
-            {...question}
-            handleAnswer={handleAnswer}
-            isChecked={isChecked}
-            setIsChecked={setIsChecked}
-          />
-        ))}
-        <div className="btn-container">
-          {isChecked ? (
-            <>
-              <p>You scored {findCorrectAnswers()}/{questionsData.length} correct answers</p>
-              <button>Play again</button>
-            </>
-          ) : (
-            <button onClick={checkAnswersClick}>Check answers</button>
-          )}
+      {loading ? (
+        <div className="loading">
+          <h1>Loading...</h1>
         </div>
-        <div className="top">
-          <img src="./images/main-top.png" alt="main-top" />
+      ) : (
+        <div className="container">
+          {questionsData.map((question) => (
+            <Questions
+              key={question.id}
+              {...question}
+              handleAnswer={handleAnswer}
+              isChecked={isChecked}
+              setIsChecked={setIsChecked}
+            />
+          ))}
+          <div className="btn-container">
+            {isChecked ? (
+              <>
+                <p>
+                  You scored {findCorrectAnswers()}/{questionsData.length}{" "}
+                  correct answers
+                </p>
+                <button onClick={tryAgain}>Play again</button>
+              </>
+            ) : (
+              isFetched && (
+                <button onClick={checkAnswersClick}>Check answers</button>
+              )
+            )}
+          </div>
+          <div className="top">
+            <img src="./images/main-top.png" alt="main-top" />
+          </div>
+          <div className="bottom">
+            <img src="./images/main-bottom.png" alt="main-bottom" />
+          </div>
         </div>
-        <div className="bottom">
-          <img src="./images/main-bottom.png" alt="main-bottom" />
-        </div>
-      </div>
+      )}
     </main>
   );
 };

@@ -91,6 +91,18 @@ main .bottom {
   left: 0;
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.loading h1 {
+  color: #293264;
+  font-size: 50px;
+}
 .container {
   padding-left: 15px;
   padding-right: 15px;
