@@ -1,1 +1,1 @@
-# this is capstone project to bob ziroll react course
+# this is capstone project from freecodecamp react Bob ziroll course
