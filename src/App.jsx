@@ -5,13 +5,13 @@ import Main from "./components/Main";
 function App() {
   const [isStarted,setIsStarted] = useState(false);
 
-  const openQuiz = () => {
-    setIsOpened(true);
+  const startQuiz = () => {
+    setIsStarted(true);
   }
   return (
     <>
       {
-        isStarted ? <Main/> : <Intro isStarted={isStarted} />
+        isStarted ? <Main/> : <Intro startQuiz={startQuiz} />
       }
       
     </>

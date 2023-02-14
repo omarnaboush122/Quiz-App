@@ -1,10 +1,18 @@
-import { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
+import { useContext } from "react";
+import { Context } from "../Context";
 import Questions from "./Questions";
 
 const Main = () => {
-
   
+  const {
+    loading,
+    questionsData,
+    isChecked,
+    findCorrectAnswers,
+    tryAgain,
+    checkAnswersClick,
+  } = useContext(Context);
+
   return (
     <main>
       {loading ? (

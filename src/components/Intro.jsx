@@ -1,11 +1,11 @@
 
 
-const Intro = ({ isStarted }) => {
+const Intro = ({ startQuiz }) => {
   return (
     <div className="intro">
       <h1>Quizzical</h1>
       <p>Some description if needed</p>
-      <button onClick={isStarted}>Start quiz</button>
+      <button onClick={startQuiz}>Start quiz</button>
       <div className="top">
         <img src="./images/intro-top.png" alt="blob-top" />
       </div>
