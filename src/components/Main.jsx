@@ -3,7 +3,6 @@ import { Context } from "../Context";
 import Questions from "./Questions";
 
 const Main = () => {
-  
   const {
     loading,
     questionsData,
@@ -27,7 +26,6 @@ const Main = () => {
               {...question}
               handleAnswer={handleAnswer}
               isChecked={isChecked}
-              setIsChecked={setIsChecked}
             />
           ))}
           <div className="btn-container">
@@ -40,9 +38,7 @@ const Main = () => {
                 <button onClick={tryAgain}>Play again</button>
               </>
             ) : (
-              isFetched && (
-                <button onClick={checkAnswersClick}>Check answers</button>
-              )
+              <button onClick={checkAnswersClick}>Check answers</button>
             )}
           </div>
           <div className="top">

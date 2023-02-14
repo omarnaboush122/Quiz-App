@@ -1,6 +1,7 @@
 import Answers from "./Answers";
 
-const Questions = ({ question, answers, handleAnswer, id,isChecked,setIsChecked }) => {
+const Questions = ({ question, answers, id}) => {
+
   return (
     <section className="questions">
       <article>
@@ -10,10 +11,7 @@ const Questions = ({ question, answers, handleAnswer, id,isChecked,setIsChecked 
             <Answers
               key={answer.id}
               {...answer}
-              handleAnswer={handleAnswer}
               questionId={id}
-              isChecked = {isChecked}
-              setIsChecked={setIsChecked}
             />
           ))}
         </div>

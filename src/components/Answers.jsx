@@ -1,12 +1,10 @@
-const Answers = ({
-  id,
-  answer,
-  isHeld,
-  handleAnswer,
-  questionId,
-  isChecked,
-  isCorrect,
-}) => {
+import { useContext } from "react";
+import { Context } from "../Context";
+
+const Answers = ({ id, answer, isHeld, questionId, isCorrect }) => {
+  
+  const { isChecked, isCorrect, handleAnswer } = useContext(Context);
+
   const style = () => {
     if (!isChecked) {
       return {

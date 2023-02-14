@@ -1,12 +1,9 @@
-import { createContext,useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { nanoid } from "nanoid";
-
 
 export const Context = createContext();
 
-
-const ContextProvider = ({children}) => {
-
+const ContextProvider = ({ children }) => {
   const [questionsData, setQuestionsData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
@@ -96,8 +93,22 @@ const ContextProvider = ({children}) => {
     fetchData();
   };
 
-
-  return <ContextProvider value={{questionsData,setQuestionsData,loading,isChecked,handleAnswer,findCorrectAnswers,checkAnswersClick,tryAgain}}>{children}</ContextProvider>
-}
+  return (
+    <ContextProvider
+      value={{
+        questionsData,
+        setQuestionsData,
+        loading,
+        isChecked,
+        handleAnswer,
+        findCorrectAnswers,
+        checkAnswersClick,
+        tryAgain,
+      }}
+    >
+      {children}
+    </ContextProvider>
+  );
+};
 
 export default ContextProvider;
