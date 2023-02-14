@@ -3,7 +3,7 @@ import Intro from "./components/Intro";
 import Main from "./components/Main";
 
 function App() {
-  const [isOpened,setIsOpened] = useState(false);
+  const [isStarted,setIsStarted] = useState(false);
 
   const openQuiz = () => {
     setIsOpened(true);
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       {
-        isOpened ? <Main/> : <Intro openQuiz={openQuiz} />
+        isStarted ? <Main/> : <Intro isStarted={isStarted} />
       }
       
     </>

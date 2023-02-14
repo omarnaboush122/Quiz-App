@@ -1,10 +1,11 @@
 
-const Intro = ({openQuiz}) => {
+
+const Intro = ({ isStarted }) => {
   return (
     <div className="intro">
       <h1>Quizzical</h1>
       <p>Some description if needed</p>
-      <button onClick={openQuiz}>Start quiz</button>
+      <button onClick={isStarted}>Start quiz</button>
       <div className="top">
         <img src="./images/intro-top.png" alt="blob-top" />
       </div>
@@ -13,6 +14,6 @@ const Intro = ({openQuiz}) => {
       </div>
     </div>
   );
-}
+};
 
 export default Intro;
