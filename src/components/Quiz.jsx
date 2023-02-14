@@ -3,6 +3,7 @@ import { Context } from "../Context";
 import Questions from "./Questions";
 
 const Main = () => {
+  
   const {
     loading,
     questionsData,

@@ -23,7 +23,6 @@ body {
   font-size: 31.25px;
   line-height: 37px;
   font-weight: 700;
-
   color: #293264;
 }
 
@@ -111,19 +110,19 @@ main .bottom {
   display: flex;
   flex-direction: column;
 }
-/* Small */
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
   }
 }
-/* Medium */
+
 @media (min-width: 992px) {
   .container {
     width: 970px;
   }
 }
-/* Large */
+
 @media (min-width: 1200px) {
   .container {
     width: 1170px;

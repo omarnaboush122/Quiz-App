@@ -3,10 +3,9 @@ import { nanoid } from "nanoid";
 
 export const Context = createContext();
 
-const ContextProvider = ({children}) => {
+const ContextProvider = ({ children }) => {
   const [questionsData, setQuestionsData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
-  const [isFetched, setIsFetched] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -18,7 +17,6 @@ const ContextProvider = ({children}) => {
       setQuestionsData(changeQuestionsArray(data.results));
       setLoading(false);
       setIsChecked(false);
-      setIsFetched(true);
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +74,6 @@ const ContextProvider = ({children}) => {
 
   const findCorrectAnswers = () => {
     let count = 0;
-
     for (let i = 0; i < questionsData.length; i++) {
       for (let j = 0; j < questionsData[i].answers.length; j++) {
         const answer = questionsData[i].answers[j];
@@ -89,7 +86,6 @@ const ContextProvider = ({children}) => {
   };
 
   const tryAgain = () => {
-    setIsFetched(false);
     fetchData();
   };
 
