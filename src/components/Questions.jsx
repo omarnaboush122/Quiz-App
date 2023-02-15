@@ -1,4 +1,5 @@
 import Answers from "./Answer";
+import { unEscape } from "../Utility";
 
 const Questions = ({ question, answers, questionId }) => {
 
@@ -8,7 +9,7 @@ const Questions = ({ question, answers, questionId }) => {
   return (
     <section className="questions">
       <article>
-        <h3>{question}</h3>
+        <h3>{unEscape(question)}</h3>
         <div className="answers">
           {allAnswers}
         </div>
